@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roblox Bio — Simple & Cute</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#FFF4FA;
+      --bg2:#EEF9FF;
+      --accent:#FF7BBF;
+      --text:#2a2a39;
+      --muted:#6b6b7a;
+      --card:rgba(255,255,255,0.85);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(900px 500px at 15% 10%,var(--bg1),transparent),
+        radial-gradient(900px 500px at 85% 90%,var(--bg2),transparent);
+      display:grid;
+      place-items:center;
+      padding:24px;
+      color:var(--text);
+    }
+
+    .card{
+      max-width:720px;
+      width:100%;
+      background:var(--card);
+      border-radius:28px;
+      padding:26px;
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:24px;
+      box-shadow:0 20px 40px rgba(30,30,40,0.08);
+      backdrop-filter:blur(6px);
+    }
+
+    /* left profile */
+    .profile{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:10px;
+    }
+
+    .avatar{
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      overflow:hidden;
+      background:linear-gradient(135deg,#fff,#ffe3f2);
+      border:5px solid #fff;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    .name{
+      font-family:'Fredoka One',sans-serif;
+      font-size:22px;
+      letter-spacing:.3px;
+    }
+
+    .username{color:var(--muted);font-weight:600}
+
+    /* right bio */
+    .bio{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:14px;
+    }
+
+    .bio-text{
+      font-size:15px;
+      line-height:1.6;
+      white-space:pre-line;
+    }
+
+    .tiny{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:6px;
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    @media (max-width:700px){
+      .card{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="profile">
+      <div class="avatar" id="avatar"></div>
+      <div class="name" id="name">Low_Cortisol</div>
+      <div class="username" id="username">@testmagnetsim</div>
+    </div>
+
+    <div class="bio">
+      <div class="bio-text" id="bio">
+Hi! I make cute stuff on Roblox ✨
+Builder + beginner scripter.
+I like pastel vibes, cozy games, and helping new players.
+
+Always learning, always improving 💖
+      </div>
+	  <footer>Discord user : yourlocalstepsister</footer>
+    </div>
+  </div>
+
+  <script>
+    /* ===== EASY EDIT SECTION ===== */
+    const profile = {
+      avatar: "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-C65676BAE9190B66600B44280B0EDCA2-Png/150/150/AvatarHeadshot/Webp/noFilter", // direct image URL (leave empty for default)
+      name: "Low_Cortisol",
+      username: "testmagnetsim",
+      bio: "Hey! I'm probably the less toxic rivals user you'll ever meet.\nPlaying for fun only since 21 february 2026.\nI like pastel vibes, cozy games, and i dont wanna get mad at a little roblox game.\n\nMy rivals stats before stopping playing seriously:\n1,246 wins for 71.8% winrate. Peak Diamond 1\n\nAlways learning, always improving 💖"
+    };
+    /* ===== END EDIT ===== */
+
+    const defaultAvatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+        <rect width='24' height='24' rx='6' fill='%23FFEAF3'/>
+        <circle cx='12' cy='9' r='4' fill='white'/>
+        <rect x='5' y='14' width='14' height='6' rx='3' fill='white'/>
+      </svg>`)};`;
+
+    document.getElementById('name').textContent = profile.name;
+    document.getElementById('username').textContent = '@' + profile.username;
+    document.getElementById('bio').textContent = profile.bio;
+
+    const img = document.createElement('img');
+    img.src = profile.avatar && profile.avatar.trim() ? profile.avatar : defaultAvatar;
+    img.alt = profile.name + ' avatar';
+    document.getElementById('avatar').appendChild(img);
+  </script>
+
+</body>
+</html>
